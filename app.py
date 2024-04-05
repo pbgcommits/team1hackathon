@@ -1,8 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, request
+from bson import ObjectId
 
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/index.html")
-def index():
-    return render_template("index.html")
+def Team1():
+    return "Hello, Team1!"
