@@ -1,45 +1,52 @@
 from flask import Flask, jsonify, render_template, jsonify, request
 from db import db
-
+from testdata import numSubjects, listOfSubjects
+from nav import findSubjectIndex
 app = Flask(__name__)
+
+### WEBPAGE NAVIGATION ###
 
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template("index.html")
 
-# Test data
-numSubjects = 4
-listOfSubjects = []
-tmpImageURI = "img/unimelblogo.png"
-for i in range(1, numSubjects + 1):
-    subject = "Subject " + str(i)
-    listOfSubjects.append({
-        "name": subject, 
-        "code": "COMP1000" + str(i), 
-        "teachingPeriod": {
-            "year": 2024, "semester": 1
-            },
-        "imgURI": tmpImageURI
-        })
 
 @app.route("/timetable")
 def timetable():
     return render_template("timetable.html")
 
+
 @app.route("/subjects")
 def subjects():
     return render_template("subjects.html", numSubjects=numSubjects, subjects=listOfSubjects)
 
+
 @app.route("/subject/<subjectName>")
 def subject(subjectName):
-    subjectIndex = -1
-    for i in range(numSubjects):
-        if listOfSubjects[i]["name"] == subjectName:
-            subjectIndex = i
-            break
-    print(i)
-    return render_template("subject.html", subject=listOfSubjects[i])
+    subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
+    return render_template("subject.html", subject=listOfSubjects[subjectIndex])
+
+
+@app.route("/subject/<subjectName>/assignments")
+def assignment(subjectName):
+    subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
+    return render_template("assignments.html", subject=listOfSubjects[subjectIndex])
+
+
+@app.route("/subject/<subjectName>/grades")
+def grades(subjectName):
+    subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
+    return render_template("grades.html", subject=listOfSubjects[subjectIndex])
+
+
+@app.route("/subject/<subjectName>/teachers")
+def teachers(subjectName):
+    subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
+    return render_template("teachers.html", subject=listOfSubjects[subjectIndex])
+
+
+### DATABASE LOGIC ###
 
 # Part 4: HTTP Post method - API to insert one recipe into the database
 @app.route("/insert-one", methods=["POST"])
@@ -56,6 +63,7 @@ def insert_one():
     else:
         return "Error: Unable to connect to the database or collection is not set up properly"
     
+
 # Part 2: Test API - Insert hard-coded data to test connection to database
 @app.route("/test")
 def test():
@@ -77,6 +85,7 @@ def get_all():
 
     # Return as JSON type
     return jsonify(data)
+
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
