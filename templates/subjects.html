@@ -1,1 +1,19 @@
 {% extends "layout.html" %}
+
+{% block title %} Subjects {% endblock %}
+
+{% block main %} 
+{% for subject in subjects %}
+    <div class="subject container">
+        <a class="subjectMargin" href="subject/{{ subject["name"] }}">
+            <!-- Image source: https://www.courseseeker.edu.au/institutions/the-university-of-melbourne -->
+            <!-- TODO: Get image URI from app -->
+            <img class="subjectImage" src= {{ url_for('static', filename = "img/unimelblogo.png") }} width="800" height="250">
+            <h1 class="subjectTitle">{{ subject["name"] }}</h1>
+            <h2 class="subjectUnitCode">{{ subject["code"] }}</h1>
+            <h2 class="semester">{{ subject["teachingPeriod"]["year"] }} Semester {{ subject["teachingPeriod"]["semester"] }}</h1>
+        </a>
+    </div>
+{% endfor %}
+{% endblock %}
+
