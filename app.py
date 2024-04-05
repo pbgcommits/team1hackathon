@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, render_template, jsonify, request
-from bson import ObjectId
 from db import db
 
 app = Flask(__name__)
