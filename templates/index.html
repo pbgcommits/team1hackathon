@@ -1,24 +1,16 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="/static/styles.css" rel="stylesheet">
-        <script src="/static/script.js"></script>
-        <title>Home - Uni App</title>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Uni App</h1>
-        </div>
-        <div class="sidenav">
-            <a href="index.html">Home</a>
-            <a href="index.html">Timetable</a>
-            <a href="index.html">Classes</a>
-        </div>
-        <div class="container">
-            <p>Here is where our home page will go :)</p>
-        </div>
-    </body>
-</html>
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<div class="header">
+    <h1>Uni App</h1>
+</div>
+<div class="container">
+    <p>Here is where our home page will go :)</p>
+</div>
+{% endblock %}
+
