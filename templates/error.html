@@ -1,0 +1,18 @@
+{% extends "basic.html" %}
+
+{% block body %}
+<body class="error">
+    <main>
+        <div class="container">
+            <h1>Error!</h1>
+            <h2>
+                {% if error == "username" %}
+                    Missing username
+                {% elif error == "password" %}
+                    Missing password
+                {% endif %}
+            </h2>
+        </div>
+    </main>
+</body>
+{% endblock %}

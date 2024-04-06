@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-    <head>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="/static/styles.css" rel="stylesheet">
-        <script src="/static/script.js"></script>
-        <title>{% block title %}{% endblock %}</title>
-        
-    </head>
-
+{% extends "basic.html" %}
+{% block body %}
     <body>
-
         <main class="main">
             {% block main %}{% endblock %}
         </main>
@@ -24,6 +10,5 @@
             <a href="/timetable">Timetable</a>
             <a href="/subjects">Subjects</a>
         </div>
-
     </body>
-</html>
+{% endblock %}

@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, render_template, jsonify, request
+from flask import Flask, jsonify, render_template, jsonify, request, redirect, session
+from flask_session import Session
 from db import db
 from testdata import numSubjects, listOfSubjects
 from nav import findSubjectIndex
@@ -45,6 +46,15 @@ def teachers(subjectName):
     subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
     return render_template("teachers.html", subject=listOfSubjects[subjectIndex])
 
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        for requirement in ["username", "password"]:
+            if not request.form.get(requirement):
+                return render_template("error.html", error=requirement)
+        return redirect("/")
 
 ### DATABASE LOGIC ###
 
