@@ -1,8 +1,15 @@
-# Team 1's Hackathon Project
+# Team 1's Hackathon Project - UniMelb Home
 
 Welcome to our Codebrew 2024 project!
+- [What is UniMelb Home?](#about)
 - [Installation](#installation)
 - [Credits](#credits)
+
+## What is UniMelb Home?
+UniMelb Home provides a platform for students' UniMelb information. Upon logging in, students will be able to access information such as:
+- Subjects
+- Timetable
+- Subject information
 
 ## Installation
 
@@ -18,6 +25,6 @@ $ flask run
 ## Credits 
 
 Team members:
-- Patrick (Flask Lead)
+- Patrick (Flask/Jinja Lead)
 - Jacklyn (Mongo Lead)
 - Danny (Concept)
