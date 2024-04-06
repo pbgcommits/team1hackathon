@@ -1,1 +1,29 @@
 {% extends "layout.html" %}
+
+{% block main %}
+    <h1 class="container">
+        Timetable
+    </h1>
+    <table class="container">
+        <tr>
+            <th>Time</th>
+            {% for day in days %}
+                <th>{{ day }}</th>
+            {% endfor %}
+        </tr>
+        {% for time in times %}
+            <tr>
+                <td>{{ time }}</td>
+                {% for day in days %}
+                    <td>
+                        {% for class in classes %}
+                            {% if class["day"] == day and class["time"] == time %}
+                                <div class="scheduledClass">{{ class["subjectCode"] }} </div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

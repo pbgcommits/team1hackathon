@@ -1,15 +1,5 @@
 """Test data for app."""
 
-numSubjects = 4
-listOfSubjects = []
-tmpImageURI = "img/unimelblogo.png"
-for i in range(1, numSubjects + 1):
-    subject = "Subject " + str(i)
-    listOfSubjects.append({
-        "name": subject, 
-        "code": "COMP1000" + str(i), 
-        "teachingPeriod": {
-            "year": 2024, "semester": 1
-            },
-        "imgURI": tmpImageURI
-        })
+listOfSubjects = [{'name': 'Subject 1', 'code': 'COMP10001', 'teachingPeriod': {'year': 2024, 'semester': 1}, 'imgURI': 'img/unimelblogo.png'}, {'name': 'Subject 2', 'code': 'COMP10002', 'teachingPeriod': {'year': 2024, 'semester': 1}, 'imgURI': 'img/unimelblogo.png'}, {'name': 'Subject 3', 'code': 'COMP10003', 'teachingPeriod': {'year': 2024, 'semester': 1}, 'imgURI': 'img/unimelblogo.png'}, {'name': 'Subject 4', 'code': 'COMP10004', 'teachingPeriod': {'year': 2024, 'semester': 1}, 'imgURI': 'img/unimelblogo.png'}]
+numSubjects = len(listOfSubjects)
+listOfClasses = [{'subjectCode': 'COMP10001', 'building': 107, 'room_number': 112, 'day': 'Tuesday', 'time': '10:00am'}, {'subjectCode': 'COMP10002', 'building': 112, 'room_number': 105, 'day': 'Thursday', 'time': '12:30pm'}, {'subjectCode': 'COMP10003', 'building': 101, 'room_number': 109, 'day': 'Thursday', 'time': '8:30am'}, {'subjectCode': 'COMP10004', 'building': 109, 'room_number': 129, 'day': 'Monday', 'time': '8:30am'}]

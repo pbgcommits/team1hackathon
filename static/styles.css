@@ -171,5 +171,12 @@ tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
 }
 
+.scheduledClass {
+    background-image: linear-gradient(to top left, blue, black);
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
 /* End unused */
 

@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, render_template, jsonify, request, redirect, session
 from flask_session import Session
 from db import db
-from testdata import numSubjects, listOfSubjects
+from testdata import numSubjects, listOfSubjects, listOfClasses
 from nav import findSubjectIndex
+from timetableinfo import days_of_the_week, times_15m
 app = Flask(__name__)
 
 ### WEBPAGE NAVIGATION ###
@@ -20,7 +21,7 @@ def index():
 
 @app.route("/timetable")
 def timetable():
-    return render_template("timetable.html")
+    return render_template("timetable.html", days=days_of_the_week, times=times_15m, classes=listOfClasses)
 
 
 @app.route("/subjects")
