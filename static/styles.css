@@ -104,16 +104,12 @@ h1 {
 }
 
 .subject {
-    /* border: 100em, #111; */
-    /* border-radius: 100px; */
-    /* border-width: 100px; */
     border-style: groove;
     border-radius: 5em;
     border-width: .35em;
     border-color: #504f4f;
     border-spacing: .5em;
     margin-top: 5em;
-    /* margin-left: 5em; */
     margin-right: 2.5em;
     background-image: linear-gradient(to bottom right, rgb(0, 132, 255), rgba(255,0,0,0), rgb(0, 132, 255))
 }

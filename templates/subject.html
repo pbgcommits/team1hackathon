@@ -5,13 +5,13 @@
 {% block main %} 
 <div style="margin-left: 160px">
     {% block heading %}
-        <h1>Welcome to {{ subject["name"] }}</h1>
+        <h1 class="container">Welcome to {{ subject["name"] }}</h1>
     {% endblock %}
     <div class="sidenav sidenav-secondary" style="margin-left: 160px">
         <h2 style="padding: 6px 8px 6px 16px; color: rgba(220, 236, 219, 0.986)">{{ subject["name"] }}</h2>
-        <a href="/subject/{{ subject["name"] }}/assignments">Assignments</a>
-        <a href="/subject/{{ subject["name"] }}/grades">Grades</a>
-        <a href="/subject/{{ subject["name"] }}/teachers">Teachers</a>
+        <a href="/subject/{{ subject['name'] }}/assignments">Assignments</a>
+        <a href="/subject/{{ subject['name'] }}/grades">Grades</a>
+        <a href="/subject/{{ subject['name'] }}/teachers">Teachers</a>
     </div>
 </div>
 {% endblock %}

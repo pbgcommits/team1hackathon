@@ -16,7 +16,7 @@ collection = pymongo.collection.Collection(db, "collection")
 
 
 # 从CSV文件中读取数据
-data = pd.read_csv('/Users/jacklyn/Desktop/flask/appendix.csv')
+data = pd.read_csv('appendix.csv')
 
 # 将数据转换为字典格式并插入到MongoDB集合中
 data_dict = data.to_dict(orient='records')
