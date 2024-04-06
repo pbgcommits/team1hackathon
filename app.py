@@ -1,9 +1,12 @@
 from flask import Flask, jsonify, render_template, jsonify, request, redirect, session
 from flask_session import Session
-# from db import db
 from testdata import numSubjects, listOfSubjects, listOfClasses
 from nav import findSubjectIndex
 from timetableinfo import days_of_the_week, times_15m
+
+# Currently not operational
+# from db import db
+
 app = Flask(__name__)
 
 ### WEBPAGE NAVIGATION ###
