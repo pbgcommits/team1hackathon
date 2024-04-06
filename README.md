@@ -10,8 +10,8 @@ To run on your machine:
 
 ```shell
 $ git clone https://github.com/pbgcommits/team1hackathon.git 
-$ pip3 install -r requirements.txt
 $ cd team1hackathon 
+$ pip3 install -r requirements.txt
 $ flask run 
 ```
 
