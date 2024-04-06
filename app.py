@@ -7,9 +7,14 @@ app = Flask(__name__)
 
 ### WEBPAGE NAVIGATION ###
 
+logged_in = False
+
+
 @app.route("/")
 @app.route("/index")
 def index():
+    if not logged_in:
+        return redirect("/login")
     return render_template("index.html")
 
 
@@ -46,14 +51,18 @@ def teachers(subjectName):
     subjectIndex = findSubjectIndex(listOfSubjects, numSubjects, subjectName)
     return render_template("teachers.html", subject=listOfSubjects[subjectIndex])
 
+
+# Nobody is pretending this is secure
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("login.html", error=None)
     else:
         for requirement in ["username", "password"]:
             if not request.form.get(requirement):
-                return render_template("error.html", error=requirement)
+                return render_template("login.html", error=requirement)
+        global logged_in
+        logged_in = True
         return redirect("/")
 
 ### DATABASE LOGIC ###

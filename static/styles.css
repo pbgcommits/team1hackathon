@@ -127,8 +127,6 @@ h1 {
     background-image: linear-gradient(to bottom right, red, white, red);
 }
 
-/* Unused */
-
 button, input[type="submit"] {
     background-color: #d9edff;
     border: 1px solid transparent;
@@ -143,15 +141,19 @@ button, input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], input[type="password"] {
+    margin-top: 5px;
+    margin-bottom: 5px;
     line-height: 1.8;
     width: 25%;
 }
 
-input[type="text"]:hover, input[type="number"]:hover {
+input[type="text"]:hover, input[type="number"]:hover, input[type="password"]:hover {
     background-color: #f5f5f5;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }
+
+/* Unused */
 
 table {
     background-color: transparent;
